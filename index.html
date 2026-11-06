@@ -1,27 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Регистрация</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
-  <body>
-    <main class="page">
-      <h1>Регистрация на прогулку</h1>
-      <form class="form" action="#" method="post">
-        <!-- TODO fieldset/legend -->
-        <div class="form__field">
-          <label>Имя</label><input type="text" placeholder="Введите имя" />
-        </div>
-        <div class="form__field">
-          <label>Email</label
-          ><input type="text" placeholder="name@example.com" />
-        </div>
-        <!-- TODO radio, checkbox, select, textarea --><button type="submit">
-          Записаться
-        </button>
-      </form>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практическая работа №20 — Семантическая разметка HTML-форм</title>
+</head>
+<body>
+
+  <form action="#" method="post">
+    <fieldset>
+      <legend>Контактные данные</legend>
+      <div>
+        <label for="name">Имя</label>
+        <input id="name" name="user-name" type="text" placeholder="Иван" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="user-email" type="email" placeholder="name@example.com" required>
+      </div>
+      <div>
+        <label for="tel">Номер телефона</label>
+        <input id="tel" name="user-phone" type="tel" placeholder="+7 (999) 000-00-00" required>
+      </div>
+      <div>
+        <label for="date">Дата поездки</label>
+        <input id="date" name="tour-date" type="date" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Параметры экскурсии</legend>
+      <div>
+        <label for="route">Выберите маршрут</label>
+        <select id="route" name="route">
+          <option value="center">Обзорная по центру</option>
+          <option value="north">Северные кварталы</option>
+        </select>
+      </div>
+      <div>
+        <span>Выберите время</span>
+        <label><input type="radio" name="tour-time" value="10:00" checked> 10:00</label>
+        <label><input type="radio" name="tour-time" value="18:00"> 18:00</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Дополнительно</legend>
+      <div>
+        <label for="comment">Комментарий</label>
+        <textarea id="comment" name="comment" rows="4"></textarea>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="agreement" value="accepted" required> Я согласен
+        </label>
+      </div>
+    </fieldset>
+
+    <button type="submit">Отправить</button>
+  </form>
+
+</body>
 </html>
